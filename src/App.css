@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -12,6 +13,8 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+/*Header CSS*/
 
 .App-header {
   background-color: #282c34;
@@ -32,7 +35,519 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.nav-list {
+
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  margin-right: 20px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.header-cta {
+  display: flex;
+  gap: 10px;
+}
+
+.header-cta button {
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: 2px solid red;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, border 0.3s, color 0.3s;
+}
+
+.header-cta button:hover {
+  background-color: darkred;
+  border-color: darkred;
+  color: white;
+}
+
+.logo-link {
+  border: 2px solid red;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.logo-link img {
+  height: 50px;
+  display: block;
+}
+
+.button-link {
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border: 2px solid red;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, border 0.3s, color 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+.button-link:hover {
+  background-color: red;
+  color: white;
+}
+
+.sign-in-page {
+  text-align: center;
+  /* Other styling as needed */
+}
+
+/*Footer CSS*/
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/*Body CSS*/
+.main-content {
+  background: url('https://medimovebucket.s3.eu-west-1.amazonaws.com/Stetoscope-picture.jpg') no-repeat center center;
+  background-size: cover;
+  text-align: center;
+  padding: 100px 20px; /* Adjust padding as necessary */
+}
+
+.search-area h1 {
+  color: rgb(1, 1, 1);
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.search-box {
+  display: inline-block;
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    border: 2px solid rgb(241, 236, 236); /* Bold red border */
+    border-radius: 5px;
+    overflow: hidden; 
+}
+
+.search-dropdown {
+  padding: 10px;
+  border: none;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.search-input {
+  padding: 10px;
+  border: none;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.searchbutton-link {
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, border 0.3s, color 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+.searchbutton-link:hover {
+  background-color: red; /* Background color changes to red on hover */
+  color: white;
+}
+
+/*Map CSS*/
+/* PractitionerDashboard.css */
+/* ResultsPage.css */
+.results-container {
+  display: flex;
+  height: 100vh;
+}
+
+.practitioner-list {
+  width: 350px; /* Fixed width for the sidebar */
+  background-color: #fff; /* White background for the list */
+  overflow-y: auto; /* Scrollbar if the list is too long */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Soft shadow to the right */
+  padding: 20px; /* Padding around the list */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.practitioner-item {
+  margin-bottom: 15px; /* Space between items */
+  padding: 10px;
+  background-color: #f9f9f9; /* Slightly off-white for the items, so they stand out */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.practitioner-item:hover {
+  background-color: #eaeaea; /* Light grey background on hover */
+}
+
+/* Google Maps container should fill the remaining space */
+.map-container {
+  flex: 1; /* Flex grow to use up available space */
+  position: relative; /* For Google Maps positioning */
+}
+
+/* Ensure the Map component fills its container */
+.map-container .map {
+  width: 100%;
+  height: 100%;
+}
+
+/* Add any additional button/link styles as needed */
+.button-link {
+  /* Your button/link styles here */
+}
+
+.error {
+  font-family: 'Poppins', sans-serif; 
+  font-weight: bold;
+}
+
+/* Side Panel Styling */
+.side-panel {
+  position: fixed;
+  left: -300px; /* Adjust width as needed */
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #ffffff; /* Adjust to match your color scheme */
+  box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s;
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+}
+
+.sidebar-option {
+  color: #333; /* Text color */
+  padding: 10px 20px; /* Padding */
+  text-decoration: none; /* No underline */
+  display: block; /* Makes the entire area clickable */
+  /* Add other styles like font-family, font-size, etc., as per your app's design */
+  font-weight: bold;
+}
+
+
+.side-panel.open {
+  left: 0;
+}
+
+.side-panel ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.side-panel ul li {
+  padding: 10px 20px;
+  border-bottom: 1px solid #f0f0f0; /* Adjust to match your color scheme */
+}
+
+.side-panel ul li a {
+  text-decoration: none;
+  color: #333333; /* Adjust to match your color scheme */
+  font-size: 16px; /* Adjust to match your typography */
+  font-weight: bold; 
+}
+
+/* Hamburger Button Styling */
+.hamburger-button {
+  background: none;
+  border: 2px solid red;
+  font-size: 30px; /* Adjust size as necessary */
+  color: #090909; /* Set to match your app's color theme */
+  padding: 10px; /* Provide some space around the icon */
+  cursor: pointer;
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.hamburger-button:hover {
+  background-color: red;
+  color: white;
+}
+
+.sidebar-logo {
+  display: block; /* Keeps the logo as a block-level element */
+  margin: 0 auto; /* Centers the logo horizontally */
+  width: 90px; /* Adjust this value to scale the size of your logo */
+  height: auto; /* This will maintain the aspect ratio of the logo */
+}
+
+.logo-container {
+  text-align: center; /* Centers the logo image */
+  padding: 10px; /* Adjust padding to give some space around the logo */
+  border-bottom: 1px solid #f0f0f0; /* Optional separator, adjust color as needed */
+}
+.close-button {
+  font-family: 'Poppins', sans-serif; /* Matches the font of your side panel */
+  color: #131313; /* Change to fit your color scheme */
+  background-color: #ffffff; /* Primary button color, adjust as needed */
+  border: 2px solid red;
+  font-weight: bold;
+  padding: 8px 16px; /* Adjust padding to fit your design */
+  font-size: 16px; /* Matches the font size of your side panel options */
+  border-radius: 4px; /* Rounded corners for the button */
+  cursor: pointer; /* Changes the cursor on hover */
+  position: absolute; /* Positions the button within the side panel */
+  top: 10px; /* Aligns with the top of the side panel */
+  right: 10px; /* Keeps the button inside the side panel */
+  z-index: 10; /* Ensures the button is above other elements */
+}
+
+.close-button:hover {
+  background-color: red;
+  color: white;
+}
+.panel-header {
+  display: flex; /* Use flexbox to layout the button and logo */
+  align-items: center; /* Align items vertically */
+  justify-content: flex-start; /* Align items to the start of the flex container */
+  padding: 10px; /* Add some padding around the content */
+}
+
+/*Calender CSS*/
+.doctor-dashboard-calendar {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.react-calendar {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  max-width: 90%;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.react-calendar__tile {
+  max-width: 100px;
+  text-align: center;
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
+  margin: 4px;
+  font-size: 0.85em;
+  font-family: 'Poppins', sans-serif; 
+}
+
+.react-calendar__tile:hover,
+.react-calendar__tile:active {
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+
+.react-calendar__tile--active {
+  background-color: #009688;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.calendar-event-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 100;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+
+.calendar-event-modal h2 {
+  font-size: 1.2em;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+
+.calendar-event-modal button {
+  padding: 8px 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
+.calendar-event-modal button:hover {
+  background-color: #d32f2f;
+}
+.calendar-title {
+  text-align: center; /* Horizontally centers the title */
+  font-family: 'Poppins', sans-serif; /* Your chosen font */
+  color: #333; /* Color for the text */
+  font-size: 24px; /* Adjust size as needed */
+  margin: 20px 0; /* Top and bottom margin */
+  margin-top: 1px; /* Reduced top margin */
+  margin-bottom: 40px;
+}
+
+/*Ride Booking CSS*/
+/* Ride Booking Form Styling */
+.ride-booking-form {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f7f7f7; /* Adjust background color */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(252, 251, 251, 0.999);
+  font-weight: bold;
+}
+
+.ride-booking-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif; /* Your app's font */
+}
+
+.ride-booking-form input, .ride-booking-form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif; /* Consistent font */
+}
+
+.ride-booking-form button {
+  background-color: #ffffff; /* Primary color of your app */
+  color: rgb(0, 0, 0);
+  border: 2px solid red;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.ride-booking-form button:hover {
+  background-color: red; /* Darker shade for hover effect */
+}
+.cancel-button {
+  display: right;
+  justify-content: space-between; /* This will push the buttons to opposite ends */
+  align-items: center;
+  margin-left: 290px;
+  font-weight: bold;
+}
+.form-title {
+  color: #333; /* Example color - adjust as needed */
+  font-family: 'Poppins', sans-serif; /* Consistent with your app's font */
+  font-size: 24px; /* Adjust size as needed */
+  margin-bottom: 20px; /* Space below the title */
+  text-align: center; /* Center the title */
+  /* Add any additional styling as per your design */
+}
+
+/* App.css */
+
+/* ... (your existing styles) ... */
+
+/* Styles for the sign-up form inputs */
+.form-input {
+  width: calc(100% - 20px); /* Full width minus padding */
+  padding: 10px;
+  margin-bottom: 10px; /* Space between inputs */
+  border: 1px solid #ddd; /* Consistent with other inputs */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Readable font size */
+  font-family: 'Poppins', sans-serif; /* Consistent font family */
+  font-weight: bold;
+}
+
+/* App.css */
+
+/* ... (your existing styles) ... */
+
+/* Styles for the form title */
+.form-title {
+  color: #282c34; /* Using the color from your .App-header for consistency */
+  font-family: 'Poppins', sans-serif; /* Using Poppins font as per your header */
+  font-size: calc(10px + 2vmin); /* Adjust size as needed, example uses responsive size */
+  font-weight: bold; /* Making the title bold */
+  margin-bottom: 20px; /* Space below the title */
+  text-align: center; /* Center the title text */
+}
+
+/* Styles for the link/text beneath the title */
+.App-link {
+  color: #ff0000; /* Using the blue color from your existing .App-link */
+  font-family: 'Poppins', sans-serif; /* Maintaining font consistency */
+  font-size: 1rem; /* Adjust size as needed, setting to 1rem for default size */
+  margin-bottom: 20px; /* Space below the paragraph */
+  text-align: center; /* Center the text */
+}
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+// Header.js
+import React from 'react';
+import '../components/Header';
+import { useNavigate } from 'react-router-dom';
+
+
+function SignUpHeader() {
+
+    const navigate = useNavigate();
+    const handleLoginClick = () => {
+        navigate('/loginpage');
+        
+    };
+
+    return (
+        <header className="header">
+                        <div className="logo">
+                <a href="/">
+                    <img src="https://medimovebucket.s3.eu-west-1.amazonaws.com/medimove-logo.png" alt="Logo" />
+                </a>
+            </div>
+            <nav className="nav">
+                <ul className="nav-list">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div className="header-cta">
+                <a onClick={handleLoginClick} className="button-link">Sign In</a>
+            </div>
+        </header>
+);
+}
+
+export default SignUpHeader;
