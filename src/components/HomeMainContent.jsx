@@ -7,26 +7,46 @@ function HomeMainContent() {
     const [location, setLocation] = useState('');
     const [error, setError] = useState('');
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         // Construct the URL for the API Gateway endpoint
-        const apiEndpoint = `https://wdust2ye7o3xuv3trvbig5snua0xjoqp.lambda-url.eu-west-1.on.aws/=${encodeURIComponent(profession)}&location=${encodeURIComponent(location)}`;
-
-        try {
-            const response = await fetch(apiEndpoint);
-            const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(`Error: ${response.status}`);
-            }
-
-            // Navigate with the search results
-            navigate('/mapdashboard', { state: { doctors: data } });
-        } catch (error) {
-            console.error('Search failed:', error);
-            setError('Failed to perform search. Please try again later.');
-        }
+        const apiEndpoint = `http://localhost:5170/api/v1/search`;
+        const searchData = {
+            city: location,
+            specialty: profession
+        };
+        console.log(searchData)
+        fetch(apiEndpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(searchData)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const searchState = {
+                    practitioners: data,
+                    specialty: profession,
+                    city: location
+                }
+                if(data.length> 0){
+                    navigate('/mapdashboard', { state: { data: searchState } });
+                }else{
+                    setError("No Practitioner Found For the Searched Location")
+                }
+            })
+            .catch(error => {
+                // Handle errors here
+                setError(error)
+                console.error('Error:', error);
+            });
     };
 
     return (
@@ -34,7 +54,7 @@ function HomeMainContent() {
             {error && <div className="error">{error}</div>}
             <form onSubmit={handleSubmit}>
                 <div className="search-area">
-                <h1>BOOK RIDES & <br /> APPOINTMENTS, 24/7. <br /> IT'S FREE!</h1>
+                    <h1>BOOK RIDES & <br /> APPOINTMENTS, 24/7. <br /> IT'S FREE!</h1>
                     <div className="search-box">
                         <select value={profession} onChange={(e) => setProfession(e.target.value)} className="search-dropdown">
                             <option value="">Select Specialty</option>
@@ -42,6 +62,7 @@ function HomeMainContent() {
                             <option value="cardiologist">Cardiologist</option>
                             <option value="pediatrician">Pediatrician</option>
                             <option value="Dentist">Dentist</option>
+                            <option value="Optimetrist">Optimetrist</option>
                         </select>
                         <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} className="search-input" placeholder="Enter city or ZIP code" />
                         <button type="submit" className="searchbutton-link">Search</button>
