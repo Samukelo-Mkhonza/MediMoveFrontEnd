@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-function MapMainContent({google}) {
+function MapMainContent({ google }) {
     const [practitioners, setPractitioners] = useState([]);
     const [mapCenter, setMapCenter] = useState({ lat: 0, lng: 0 });
 
@@ -16,7 +16,6 @@ function MapMainContent({google}) {
 
     useEffect(() => {
         const geocodeLocation = async () => {
-            // Replace 'YOUR_GOOGLE_MAPS_API_KEY' with the actual API key
             const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(doctorsData.city)}&key=AIzaSyDOWL_-VZyW4pqE3i_xB8Gk3KpWiD0dVjA`;
 
             try {
@@ -28,7 +27,7 @@ function MapMainContent({google}) {
                 }
                 if (geocodeData.results && geocodeData.results.length > 0) {
                     const { lat, lng } = geocodeData.results[0].geometry.location;
-                    console.log(lat,lng)
+                    console.log(lat, lng)
                     setMapCenter({ lat, lng });
                     setPractitioners([
                         // Replace this with real data fetched from your backend
@@ -51,34 +50,39 @@ function MapMainContent({google}) {
 
     return (
         <>
-        <div className='row'>
-            <div className='col-md-4'>
-                <div className="">
-                    {doctorsData.practitioners.map((practitioner) => (
-                        <div className="practitioner-item" key={practitioner.id}>
-                            <h4>{practitioner.firstName}</h4>
-                            <img src={practitioner.imageUrl} height={100} width={100} alt='nothing'/>
-                        </div>
-                    ))}
+            <div className='row'>
+                <div className='col-md-4'>
+                    <div className="practitioner-list">
+                        {doctorsData.practitioners.map((practitioner) => (
+                            <div className="practitioner-item" key={practitioner.id}>
+                                <h4>{practitioner.firstName}</h4>
+                                <img src={practitioner.imageUrl} alt={practitioner.firstName} />
+                                <div className="practitioner-details">
+                                    <p>{practitioner.specialty}</p>
+                                    <p>{practitioner.location}</p>
+                                </div>
+                                <button className="view-profile-button">View Profile & Availability</button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div className='col-md-8'>
+                    <Map google={google} zoom={14} center={mapCenter}>
+                        {practitioners.map((practitioner) => (
+                            <Marker
+                                key={practitioner.id}
+                                position={practitioner.location}
+                            />
+                        ))}
+                    </Map>
                 </div>
             </div>
-            <div className='col-md-8'>
-                <Map google={google} zoom={14} center={mapCenter}>
-                    {practitioners.map((practitioner) => (
-                        <Marker
-                            key={practitioner.id}
-                            position={practitioner.location}
-                        />
-                    ))}
-                </Map>
-            </div>
-        </div>
-    </>
+        </>
     );
 }
 
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyDOWL_-VZyW4pqE3i_xB8Gk3KpWiD0dVjA' // Put your API key here
+    apiKey: 'AIzaSyDOWL_-VZyW4pqE3i_xB8Gk3KpWiD0dVjA'
 })(MapMainContent);
 
 

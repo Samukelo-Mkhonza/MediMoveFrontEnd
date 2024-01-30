@@ -173,6 +173,7 @@
   font-size: 1.7rem;
   margin-bottom: 20px;
   font-family: 'Poppins', sans-serif;
+  font-weight: bold;
 }
 
 .search-box {
@@ -545,6 +546,65 @@
   margin-bottom: 20px; /* Space below the paragraph */
   text-align: center; /* Center the text */
 }
+
+/* App.css */
+
+/* ... existing styles ... */
+
+/* Styles for the practitioner list items */
+.practitioner-item {
+  background-color: #f9f9f9; /* Light grey background */
+  border: 1px solid #ddd; /* Border to match your style */
+  border-radius: 4px; /* Rounded corners */
+  padding: 15px; /* Spacing inside each item */
+  margin-bottom: 10px; /* Space between items */
+  font-family: 'Poppins', sans-serif; /* Consistent font family */
+  color: #333; /* Text color to match your style */
+}
+
+.practitioner-item h4 {
+  margin: 0 0 10px 0; /* No margin for the name heading */
+}
+
+.practitioner-item img {
+  width: 100%; /* Make image responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 4px; /* Rounded corners for image */
+  margin-bottom: 10px; /* Space below the image */
+}
+
+.practitioner-details {
+  text-align: left; /* Align details text to the left */
+}
+
+.view-profile-button {
+  background-color: #ffffff; /* Using the blue color from your .App-link */
+  color: rgb(3, 3, 3);
+  border: 2px solid red;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  width: 100%; /* Full width button */
+  box-sizing: border-box; /* Include padding in width */
+  text-align: center; /* Center text in button */
+  margin-top: 10px; /* Space above the button */
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.view-profile-button:hover {
+  background-color: #f80404; /* Darker shade of blue on hover */
+}
+
+/* Add a class for the left pane container */
+.practitioner-list {
+  overflow-y: auto; /* Scrollbar if the list is too long */
+  height: calc(100vh - 20px); /* Full height minus any header/footer */
+  padding: 10px;
+}
+
 
 
 
